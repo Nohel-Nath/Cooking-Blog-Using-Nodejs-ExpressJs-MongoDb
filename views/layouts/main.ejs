@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%=typeof title != 'undefined' ? title:'Cooking Blog - Made With NodeJs, ExpressJs & MongoDB' %></title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow&family=PT+Sans&family=Rubik:wght@300;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class ="container-xxl px-md-5 bg-white shadow-lg">
+
+
+
+        <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+            <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+
+                <img src="/img/logo(1).jpg" width="120" height="120" alt="Cooking Blog - Made with Node.js">
+            <!--<svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>-->
+            </a>
+            <div class="col-md-3 text-end">
+                <form method="POST" action="/search">
+                    <input type="search" name="searchTerm" class="form-control" placeholder="Search..." aria-label="Search">
+                </form>
+            </div>
+
+            <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+            <li><a href="#" class="nav-link px-2 link-dark">Home</a></li>
+            <li><a href="#" class="nav-link px-2 link-dark" id="about-link">About</a></li>
+            <li><a href="/submit-recipe" class="nav-link px-2 link-dark">Submit</a></li>
+            <li><a href="#" class="nav-link px-2 link-dark" id="contact-section">Contract</a></li>
+            </ul>
+        </header>
+
+
+        <main>
+        <%- body -%>
+        </main>
+
+
+        
+
+
+
+
+        <div class="about-section" id="about-section">
+            <h2>About Us</h2>
+            <p>Home cooks are our heroes—it's as simple as that. This cookingblog is a community built by and for kitchen experts: The cooks who will dedicate the weekend to a perfect beef bourguignon but love the simplicity of a slow-cooker rendition, too. The bakers who labor over a showstopping 9-layer cake but will just as happily doctor boxed brownies for a decadent weeknight dessert. The entertainers who just want a solid snack spread, without tons of dirty dishes at the end of the night.
+            Most importantly, cookingblog connects home cooks with their greatest sources of inspiration — other home cooks. We're the world's leading digital food brand, and that inspires us to do everything possible to keep our community connected. Sixty-million home cooks deserve no less.</p>
+        </div>
+
+        <script>
+            const aboutLink = document.getElementById('about-link');
+            const aboutSection = document.getElementById('about-section');
+        
+            aboutLink.addEventListener('click', function(event) {
+            event.preventDefault();
+            aboutSection.style.display = 'block';
+            window.scrollTo(0,document.body.scrollHeight);  // Show the section
+            });
+        </script>
+
+
+
+
+<div class="contact-section" id="contact-section">
+    <h2  class="contact-header">Contact Us</h2>
+    <form action="" method="">
+        <form action="/send-mail" method="POST"></form>
+    <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" class="form-control" id="name" name="name" required>
+    </div>
+    <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" id="email" name="email" required>
+    </div>
+    <div class="mb-3">
+        <label for="message" class="form-label">Message</label>
+        <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+    </div>
+    <button type="submit" onclick="sendmail()" class="btn btn-primary">Send</button>
+    </form>
+</div>
+
+<!--<script>
+    toastr.options = {
+    "positionClass": "toast-bottom-right",
+    "progressBar": true,
+    "timeOut": "3000"
+    }
+</script>-->
+
+<script>
+
+    const contactLink = document.getElementById('contact-section');
+    const contactSection = document.getElementById('contact-section');
+
+    contactLink.addEventListener('click', function(event) {
+    event.preventDefault();
+    contactSection.style.display = 'block';
+    window.scrollTo(0,document.body.scrollHeight);  // Show the section
+    });
+
+
+    
+    /*const xhr = new XMLHttpRequest();
+
+  // Set up the callback function for successful form submission
+    xhr.onload = function () {
+    if (xhr.status === 200) {
+      // Display the success message using express-toastr
+        toastr.success('Your message has been sent successfully');
+    } else {
+        toastr.error('There was a problem sending your message. Please try again later.');
+    }
+};
+
+  // Set up the callback function for failed form submission
+    xhr.onerror = function () {
+    toastr.error('There was a problem sending your message. Please try again later.');
+};
+
+  // Send the form data to the server using the XMLHttpRequest object
+    xhr.open(contactLink.method, contactLink.action);
+    xhr.send(new FormData(contactLink));
+
+    //req.toastr.success('Your message has been sent successfully');
+    //req.toastr.success(message, title = '', options = {Your message has been sent successfully})*/aboutLink
+    
+
+    function sendmail()
+    {
+        alert ('Your message is sent');
+    }
+
+    
+</script>
+        
+
+
+<footer class="py-1">
+    <p>Build By Nohel</p>
+</footer>
+
+
+
+    </div>
+
+
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src ="/js/script.js"></script>
+    
+</body>
+</html>
