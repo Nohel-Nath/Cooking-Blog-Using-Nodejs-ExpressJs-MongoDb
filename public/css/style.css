@@ -1,0 +1,82 @@
+:root{
+    --bs-font-sans-serif : 'Rubik', sans-serif;
+}
+.container-xxl { max-width: 1200px; }
+
+body {
+    background-image: url("/img/FoodAndDrinkDesign.png");
+    background-color: rgb(243,243,243);
+}
+
+a { color: var(--bs-dark); }
+
+
+
+.category__link {
+    text-align: center;
+    display: block;
+    text-decoration: none;
+    transition: 250ms all;
+}
+
+.category__link:hover {
+    transform: scale(1.1);
+}
+
+
+.category__img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    margin-bottom: 10px;
+    box-shadow: 0px 3px 6px rgba(0,0,0,.16);
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.category__img img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.category__img--large {
+    height: 130px;
+    width: 200px;
+    
+}
+
+
+.about-section {
+    /*position: absolute;
+    text-align: center;
+    bottom: 0;
+    transition: 250ms all;
+    width: 100%;
+    background-color: white;
+    padding: 50px;
+    background-color: #f0f0f0;
+    display: block; /* Hide the section by default */
+
+    text-align: center;
+    display: block;
+    text-decoration: none;
+    transition: 250ms all;
+}
+
+.contact-section{
+    text-align: left;
+    display: block;
+    text-decoration: none;
+    transition: 250ms all;
+}
+
+.contact-header
+{
+    text-align: center;
+    display: block;
+    text-decoration: none;
+    transition: 250ms all;
+    color:blueviolet;
+}
+
